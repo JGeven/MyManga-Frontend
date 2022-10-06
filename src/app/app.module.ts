@@ -8,6 +8,8 @@ import { MangaListComponent } from './manga-list/manga-list.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {FormsModule} from "@angular/forms";
 import { MangaDetailComponent } from './manga-detail/manga-detail.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -16,14 +18,16 @@ import { MangaDetailComponent } from './manga-detail/manga-detail.component';
     MangaListComponent,
     MangaDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    Ng2SearchPipeModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        Ng2SearchPipeModule,
+        FormsModule,
+        NoopAnimationsModule,
+        MatTabsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
