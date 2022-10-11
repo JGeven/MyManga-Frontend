@@ -1,29 +1,37 @@
-<h3>View Manga Details</h3>
-<div>
-  <div>
-    <label> <b>MAL ID:</b> </label> {{ manga.mal_id }}
+<div class="container">
+  <div class="row">
+    <label><b>{{manga.title}}</b></label>
   </div>
-  <div>
-    <label> <b>Title:</b> </label> {{ manga.title }}
+  <div class="row">
+    <div class="col-md-2">
+      <div class="p-6 bg-secondary border">
+        <label>MAL ID:</label> {{manga.mal_id}}
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="">
+        <mat-tab-group>
+          <mat-tab label="Details">
+            <label><b>Summary:</b></label> {{manga.synopsis}}
+          </mat-tab>
+          <mat-tab label="Stats">
+            <div>
+              <div>
+                <label> <b>Reading:</b> </label> {{ statistics.reading }}
+              </div>
+              <div>
+                <label> <b>Completed:</b> </label> {{ statistics.completed }}
+              </div>
+              <div>
+                <label> <b>Dropped:</b> </label> {{ statistics.dropped }}
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
   </div>
 </div>
 
-<mat-tab-group>
-  <mat-tab label="Details">
-    <label><b>Summary:</b></label> {{manga.synopsis}}
-  </mat-tab>
-  <mat-tab label="Stats">
-    <div>
-      <div>
-        <label> <b>Reading:</b> </label> {{ statistics.reading }}
-      </div>
-      <div>
-        <label> <b>Completed:</b> </label> {{ statistics.completed }}
-      </div>
-      <div>
-        <label> <b>Dropped:</b> </label> {{ statistics.dropped }}
-      </div>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+
 
