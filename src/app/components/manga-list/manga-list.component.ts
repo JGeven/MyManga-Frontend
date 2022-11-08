@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Manga} from "../models/manga";
-import {MangaService} from "../service/manga.service";
+import {Manga} from "../../models/manga";
+import {MangaService} from "../../service/manga.service";
 import {Router} from "@angular/router";
 
 @Component({

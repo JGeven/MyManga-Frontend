@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Manga} from "../models/manga";
-import {MangaService} from "../service/manga.service";
+import {Manga} from "../../models/manga";
+import {MangaService} from "../../service/manga.service";
 import {ActivatedRoute} from "@angular/router";
-import {Statistics} from "../models/statistics";
+import {Statistics} from "../../models/statistics";
 
 @Component({
   selector: 'app-manga-detail',
