@@ -5,7 +5,8 @@ import {MangaDetailComponent} from "./components/manga-detail/manga-detail.compo
 import {MangaHomeComponent} from "./components/manga-home/manga-home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
-import {UserAccountComponent} from "./components/user-account/user-account.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
+import {GuardService} from "./service/security/guard.service";
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path: 'manga-home', component: MangaHomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'user-account', component:UserAccountComponent},
+  {path: 'user-profile/:id', component:UserProfileComponent, canActivate: [GuardService]},
   {path: '', redirectTo: 'manga-home', pathMatch: "full"}
 ];
 

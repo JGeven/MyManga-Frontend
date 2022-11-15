@@ -9,6 +9,15 @@
     <li class="nav-item">
       <a routerLink="register" routerLinkActive="active" class="nav-link">Register</a>
     </li>
+    <li class="nav-item">
+      <a routerLink="login" routerLinkActive="active" class="nav-link">Login</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="user-profile/:id" routerLinkActive="active" class="nav-link" (click)="userProfile()" >Profile</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="user-profile/:id" routerLinkActive="active" class="nav-link" (click)="clear()" >logout</a>
+    </li>
   </ul>
 </nav>
 

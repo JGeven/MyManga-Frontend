@@ -12,8 +12,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import {MatTabsModule} from "@angular/material/tabs";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { UserAccountComponent } from './components/user-account/user-account.component';
-import { SecurityComponent } from './components/security/security.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,7 @@ import { SecurityComponent } from './components/security/security.component';
     MangaDetailComponent,
     LoginComponent,
     RegisterComponent,
-    UserAccountComponent,
-    SecurityComponent,
-
+    UserProfileComponent
   ],
     imports: [
         BrowserModule,

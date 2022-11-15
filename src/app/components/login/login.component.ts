@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../models/user";
-import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
+import {AuthenticationService} from "../../service/security/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   user: User = new User()
 
-  constructor(private userService:UserService,
+  constructor(private authService:AuthenticationService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -23,14 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.userService.loginUser(this.user).subscribe(data => {
-      console.log(data)
-      this.goToMangaHome()
+    console.log(this.user.userName)
+    this.authService.generateToken(this.user.userName,this.user.password).subscribe({
+     next: () => {this.router.navigate(["/manga-home"])}
     })
   }
-
-  goToMangaHome() {
-    this.router.navigate(['/manga-home'])
-  }
-
 }
