@@ -11,12 +11,20 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor = "let manga of mangas | filter:searchText">
+  <tr *ngFor = "let manga of favoriteMangas | filter:searchText">
     <td>{{ manga.mal_id }}</td>
     <td>{{ manga.title }}</td>
     <td>{{ manga.synopsis }}</td>
     <td>
       <button (click)="mangaDetails(manga.mal_id)" class="btn btn-info" style="margin-left: 10px">View</button>
+      <div (click)="onFavorite(manga.mal_id)">
+        <div *ngIf="manga.isFavorite === true">
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div *ngIf="manga.isFavorite === false">
+          <i class="bi bi-star"></i>
+        </div>
+      </div>
     </td>
   </tr>
   </tbody>

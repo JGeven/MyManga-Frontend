@@ -7,6 +7,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 import {GuardService} from "./service/security/guard.service";
+import {UserProfileSettingsComponent} from "./components/user-profile-settings/user-profile-settings.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'user-profile/:id', component:UserProfileComponent, canActivate: [GuardService]},
+  {path: 'user-profile-settings/:id', component:UserProfileSettingsComponent, canActivate: [GuardService]},
   {path: '', redirectTo: 'manga-home', pathMatch: "full"}
 ];
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
   <ul class="navbar-nav">
     <li class="nav-item">
       <a routerLink="manga-home" routerLinkActive="active" class="nav-link">Home</a>
@@ -6,18 +6,25 @@
     <li class="nav-item">
       <a routerLink="manga-list" routerLinkActive="active" class="nav-link">Browse Manga</a>
     </li>
-    <li class="nav-item">
-      <a routerLink="register" routerLinkActive="active" class="nav-link">Register</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="login" routerLinkActive="active" class="nav-link">Login</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="user-profile/:id" routerLinkActive="active" class="nav-link" (click)="userProfile()" >Profile</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="user-profile/:id" routerLinkActive="active" class="nav-link" (click)="clear()" >logout</a>
-    </li>
+  </ul>
+  <ul class="navbar-nav ms-auto">
+      <li class="nav-item" >
+        <div *ngIf="!authService.isLoggedin">
+          <a routerLink="login" routerLinkActive="active" class="nav-link">Login</a>
+        </div>
+      </li>
+    <div *ngIf="authService.isLoggedin">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" routerLink="user-profile/:id" routerLinkActive="active" >Profile</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="user-profile-settings/:id" routerLinkActive="active" >Settings</a></li>
+          <li><a class="dropdown-item" (click)="clear()" >Logout</a></li>
+        </ul>
+      </div>
+    </div>
   </ul>
 </nav>
 

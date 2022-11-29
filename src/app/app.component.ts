@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MangaService} from "./service/manga.service";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "./service/security/authentication.service";
+import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,17 @@ import {AuthenticationService} from "./service/security/authentication.service";
 })
 export class AppComponent {
   title = 'MyManga-Frontend';
+  userID: number = Number(localStorage.getItem("userID"))
+  user: User = JSON.parse(String(localStorage.getItem('currentUser'))) as User
 
   constructor(private router: Router,
-              private authService: AuthenticationService) { }
+              public authService: AuthenticationService) { }
 
   userProfile() {
-    this.router.navigate(['user-profile', localStorage.getItem("userID")]);
+    this.router.navigate(['user-profile', this.userID]);
+  }
+  userProfileSettings() {
+    this.router.navigate(['user-profile-settings', this.userID])
   }
 
   clear() {
