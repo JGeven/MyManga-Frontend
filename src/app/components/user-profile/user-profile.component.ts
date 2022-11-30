@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../service/security/authentication.service";
-import jwtDecode from "jwt-decode";
 import {User} from "../../models/user";
 import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
@@ -25,7 +24,7 @@ export class UserProfileComponent implements OnInit {
   userID: number = Number(localStorage.getItem("userID"))
 
   // UX
-  searchText: any;
+  searchText: String;
 
   constructor(private authService: AuthenticationService,
               private userService: UserService,

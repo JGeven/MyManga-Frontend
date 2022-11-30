@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {MangaService} from "./service/manga.service";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "./service/security/authentication.service";
 import {User} from "./models/user";

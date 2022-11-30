@@ -22,7 +22,7 @@ export class MangaListComponent implements OnInit {
   userID: number = Number(localStorage.getItem("userID"))
 
   // UX
-  searchText: any;
+  searchText: String;
 
   constructor(private mangaService: MangaService,
               private userService: UserService,

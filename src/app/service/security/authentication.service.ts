@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, tap} from "rxjs";
+import { Observable, tap} from "rxjs";
 import {UserService} from "../user.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
@@ -46,24 +46,17 @@ export class AuthenticationService {
 
   // Checks if the user is logged in
   get isLoggedin(): boolean {
-    let Authtoken = localStorage.getItem("auth_token")
+    const Authtoken = localStorage.getItem("auth_token")
     return Authtoken !== null
   }
 
   // decode JWT token to get the user info
   decodeToken() {
     const token = this.getToken()
-    var decodedinfo = jwtDecode<any>(String(token))
+    const decodedinfo = jwtDecode<any>(String(token))
 
     localStorage.setItem("user_info", decodedinfo)
     localStorage.setItem("userID", decodedinfo.userID)
   }
-
-  readToken() {
-    const  token = this.getToken()
-    let decodedinfo;
-    return decodedinfo = jwtDecode<any>(String(token))
-  }
-
 
 }

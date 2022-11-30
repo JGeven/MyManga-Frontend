@@ -19,26 +19,21 @@ export class UserService {
 
   // User Services
 
-  // get all users from backend
-  getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.baseURL}`);
-  }
-
   // Register a user
-  registerUser(user: User): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL + "/users"}`, user)
+  registerUser(user: User): Observable<User >{
+    return this.httpClient.post<User>(`${this.baseURL + "/users"}`, user)
   }
 
   // Delete a user
   deleteUser(userID: number) {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set("userID", userID)
     return this.httpClient.delete(`${this.baseURL + "/users"}`, {params : params})
   }
 
   // Update a user
   updateUser(userID: number, user: User): Observable<User> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set("userID", userID)
     return this.httpClient.put<User>(`${this.baseURL + "/users"}`, user, {params : params})
   }
@@ -47,14 +42,14 @@ export class UserService {
 
   // get user details
   getUserbyID(userID: number): Observable<User>{
-    let params =  new HttpParams()
+    const params =  new HttpParams()
     .set("userID", userID)
     return this.httpClient.get<User>(`${this.baseURL + "/users"}`, {params : params})
   }
 
   // favorite a manga
   favoriteManga(mangaID: number, userID: number) {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set("mangaID", mangaID)
       .set("userID", userID)
     return this.httpClient.post(`${this.mangaURL}`,{}, {params : params})
@@ -62,7 +57,7 @@ export class UserService {
 
   // unfavorite a manga
   unfavoriteManga(mangaID: number, userID: number) {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set("mangaID", mangaID)
       .set("userID", userID)
     return this.httpClient.delete(`${this.mangaURL}`, {params : params})
@@ -70,7 +65,7 @@ export class UserService {
 
   // get favorite manga of user
   getFavoriteManga(userID: number): Observable<Manga[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set("userID", userID)
     return this.httpClient.get<Manga[]>(`${this.mangaURL}`, {params : params})
   }
