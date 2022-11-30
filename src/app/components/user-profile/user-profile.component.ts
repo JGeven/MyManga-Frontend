@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
   userID: number = Number(localStorage.getItem("userID"))
 
   // UX
-  searchText: String;
+  searchText: string;
 
   constructor(private authService: AuthenticationService,
               private userService: UserService,
