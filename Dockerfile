@@ -1,19 +1,11 @@
 # Stage 1
-FROM node:15.14-alpine as build-step
-
-RUN mkdir -p /app
-
+FROM node:18 as node
 WORKDIR /app
-
-COPY package.json /app
-
+COPY . .
 RUN npm install
-COPY . /app
-
-RUN npm run build --prod
+RUN npm run build
 
 # Stage 2
-
-FROM nginx:1.17.1-alpine
-
-COPY --from=build-step /app/docs /usr/share/nginx/html
+FROM nginx:latest
+COPY --from=node /app/dist/mymanga-frontend  /usr/share/nginx/html
+EXPOSE 4200:80
