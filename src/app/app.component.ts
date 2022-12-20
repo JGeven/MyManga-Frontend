@@ -11,7 +11,6 @@ import {User} from "./models/user";
 export class AppComponent {
   title = 'MyManga-Frontend';
   userID: number = Number(localStorage.getItem("userID"))
-  user: User = JSON.parse(String(localStorage.getItem('currentUser'))) as User
 
   constructor(private router: Router,
               public authService: AuthenticationService) { }
