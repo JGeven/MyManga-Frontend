@@ -1,0 +1,33 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Create Account </h3>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="username">
+      <span
+        *ngIf="registerForm.controls['username'].dirty && registerForm.getError('required', 'username')"
+        class="text-danger">*Required</span>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+      <span
+        *ngIf="registerForm.controls['email'].dirty && registerForm.getError('required', 'email')"
+        class="text-danger">*Required</span>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      <span
+        *ngIf="registerForm.controls['password'].dirty && registerForm.getError('required', 'password')"
+        class="text-danger">*Required</span>
+      <span *ngIf="registerForm.controls['password'].dirty && registerForm.getError('minlength', 'password')"
+            class="text-danger">*Please insert a password with a minimum of 8 characters</span>
+    </div>
+
+    <button class="btn btn-success" [disabled]="registerForm.pristine || registerForm.invalid" type="submit">Register
+      Account
+    </button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<div class="row">
+    <div>
+      <label>
+        <b>{{user.userName}}</b>
+      </label>
+    </div>
+    <div>
+      <label>
+        <b>{{user.email}}</b>
+      </label>
+    </div>
+</div>
+
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>MAL ID</th>
+      <th>Title</th>
+      <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let manga of mangas | filter:searchText">
+      <td>{{ manga.mal_id }}</td>
+      <td>{{ manga.title }}</td>
+      <td>{{ manga.synopsis }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
